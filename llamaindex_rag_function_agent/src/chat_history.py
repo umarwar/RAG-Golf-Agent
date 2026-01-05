@@ -202,3 +202,53 @@ class ChatHistoryManager:
         if not assistant_result.data:
             logger.error(f"Failed to save assistant message to chat {chat_id}")
             raise RuntimeError(f"Failed to save assistant message to chat {chat_id}")
+
+    def get_all_chats(self, user_id: str) -> List[dict]:
+        """
+        Fetch all chats for a given user from chat_by_user table.
+
+        Args:
+            user_id: UUID string of the user
+
+        Returns:
+            List of dictionaries with chat_id, user_id, created, and title
+        """
+        try:
+            user_uuid = UUID(user_id)
+        except ValueError:
+            raise ValueError(f"Invalid user_id format: {user_id}")
+
+        result = (
+            self.client.table("chat_by_user")
+            .select("chat_id, user_id, created, title")
+            .eq("user_id", str(user_uuid))
+            .order("created", desc=True)
+            .execute()
+        )
+
+        return result.data if result.data else []
+
+    def get_all_messages(self, chat_id: str) -> List[dict]:
+        """
+        Fetch all messages for a given chat from history_by_chat table.
+
+        Args:
+            chat_id: UUID string of the chat
+
+        Returns:
+            List of dictionaries with chat_id, history_id, role, content, and created
+        """
+        try:
+            chat_uuid = UUID(chat_id)
+        except ValueError:
+            raise ValueError(f"Invalid chat_id format: {chat_id}")
+
+        result = (
+            self.client.table("history_by_chat")
+            .select("chat_id, history_id, role, content, created")
+            .eq("chat_id", str(chat_uuid))
+            .order("created", desc=False)
+            .execute()
+        )
+
+        return result.data if result.data else []
