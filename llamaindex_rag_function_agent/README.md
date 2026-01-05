@@ -7,7 +7,7 @@ An intelligent RAG (Retrieval-Augmented Generation) agent powered by LlamaIndex,
 - **Golf Course Search**: Find and get detailed information about golf courses worldwide
 - **Scorecard Information**: Retrieve hole-by-hole par, handicap, and rating data
 - **Tee Details**: Access yardages, course ratings, and slope ratings for all tee colors
-- **Application Support**: Get help with GolfGuiders app features and usage
+- **Application Support**: Get help with app documentation features and usage
 - **Multi-turn Conversations**: Maintains context across conversation turns
 - **Streaming Responses**: Real-time token streaming for better UX
 - **Persistent Chat History**: Conversations saved in Supabase for continuity
