@@ -89,7 +89,6 @@ async def chat_stream(request: ChatRequest):
                     context=None,
                     chat_history=chat_history,
                 ):
-                    print(f"chunk: {chunk}")
                     assistant_response_parts.append(chunk)
                     yield {
                         "event": "message",
