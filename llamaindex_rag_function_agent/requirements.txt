@@ -1,0 +1,12 @@
+llama-index
+llama-index-llms-openai
+llama-index-llms-google-genai
+llama-index-vector-stores-pinecone
+llama-index-embeddings-openai
+pinecone
+python-dotenv
+cassandra-driver
+fastapi
+uvicorn[standard]
+pydantic
+supabase
