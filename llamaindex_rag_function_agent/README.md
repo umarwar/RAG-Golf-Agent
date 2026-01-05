@@ -32,7 +32,24 @@ The agent uses 4 specialized tools to answer queries:
 pip install -r requirements.txt
 ```
 
-### 2. Start FastAPI Server
+### 2. Set-up the environment variables
+
+```bash
+OPENAI_API_KEY
+GOOGLE_API_KEY
+PINECONE_API_KEY
+GOLF_INDEX_NAME
+GOLF_INDEX_HOST
+GOLF_NAMESPACE
+APP_INDEX_NAME
+APP_INDEX_HOST
+CASSANDRA_USERNAME
+CASSANDRA_PASS
+SUPABASE_URL
+SUPABASE_KEY
+```
+
+### 3. Start FastAPI Server
 
 ```bash
 uvicorn main:app --reload --host 0.0.0.0 --port 8000
